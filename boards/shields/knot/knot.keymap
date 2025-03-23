@@ -34,36 +34,36 @@
     compatible = "zmk,keymap";
     default_layer {
       bindings = <
-        &mkp MB1 &mo 1
-        &mkp MB2 &mo 2
+        &mkp MB1 &mkp MB2
+        &mo 3     &mo 2 
       >;
     };
 
     1 {
       bindings = <
-        &mkp MB4 &none
-        &mkp MB5 &mo 3
+        &msc SCRL_UP   &trans
+        &msc SCRL_DOWN &trans
       >;
     };
 
     2 {
       bindings = <
-        &msc SCRL_UP   &mo 4
-        &msc SCRL_DOWN &trans
+        &mkp MB4 &mo 1
+        &mkp MB5 &trans
       >;
     };
 
     3 {
       bindings = <
-        &bt BT_SEL 0   &bt BT_CLR
-        &bt BT_SEL 1   &trans
+        &bt BT_SEL 0   &bt BT_SEL 1
+        &trans         &mo 4
       >;
     };
 
     4 {
       bindings = <
-        &bt BT_SEL 2   &trans
-        &bt BT_SEL 3   &bt BT_CLR
+        &bt BT_SEL 2   &bt BT_SEL 3
+        &bt BT_CLR     &trans
       >;
     };
   };
