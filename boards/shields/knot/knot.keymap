@@ -8,6 +8,14 @@
 
 / {
   trackball_listener {
+    lowspeedmode {
+        layers = <4>;
+        input-processors =
+          &zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT),
+          &zip_x_scaler 1 50
+          &zip_y_scaler 1 50
+          &zip_temp_layer 4 750;
+    };
     scroller {
         layers = <1>;
         input-processors = <
@@ -17,6 +25,14 @@
           &zip_xy_to_scroll_mapper
         >;
     };
+  };
+
+   td0: tap_dance_0 {
+    compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&lt 4 &mkp MB2>;
+       };
   };
 
   combos {
@@ -55,6 +71,13 @@
       bindings = <
         &bt BT_SEL 1   &bt BT_SEL 2
         &bt BT_CLR     &trans
+      >;
+    };
+
+    4 {
+      bindings = <
+        &mkp MB1       &trans
+        &trans         &trans
       >;
     };
   };
